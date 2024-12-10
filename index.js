@@ -8,10 +8,17 @@ const fs = require("fs");        ///already installed with node || fs -> file
 
 const mongoose = require("mongoose");
 
+
+const pathnew = './public/images/uploadss/';
+if (!fs.existsSync(pathnew)) {
+  fs.mkdirSync(pathnew, { recursive: true }); // This will ensure all parent directories are created as well
+}
+
+
 const multer = require("multer");
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
-      cb(null,'./public/images/uploads/');  // Folder to temporarily store files
+      cb(null,'./public/images/uploadss/');  // Folder to temporarily store files
     },
     filename: (req, file, cb) => {
       cb(null, Date.now() + "-" + file.originalname); // Unique filenames
@@ -25,10 +32,7 @@ const storage = multer.diskStorage({
 
 
 
-//   const pathnew = './public/images/uploads/';
-// if (!fs.existsSync(pathnew)) {
-//   fs.mkdirSync(pathnew, { recursive: true }); // This will ensure all parent directories are created as well
-// }
+ 
 
 
 
