@@ -9,7 +9,7 @@ const mongoose = require("mongoose");
 const multer = require("multer");
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
-      cb(null, "/images/uploads");  // Folder to temporarily store files
+      cb(null, "/uploads");  // Folder to temporarily store files
     },
     filename: (req, file, cb) => {
       cb(null, Date.now() + "-" + file.originalname); // Unique filenames
@@ -20,6 +20,19 @@ const storage = multer.diskStorage({
 
   // Middleware for uploading files
   const upload = multer({ storage });
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
   const cloudinary = require("cloudinary").v2;
