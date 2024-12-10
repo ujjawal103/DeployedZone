@@ -11,7 +11,7 @@ const mongoose = require("mongoose");
 const multer = require("multer");
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
-      cb(null,'/DeployedZone/public/images/uploads/');  // Folder to temporarily store files
+      cb(null,'./public/images/uploads/');  // Folder to temporarily store files
     },
     filename: (req, file, cb) => {
       cb(null, Date.now() + "-" + file.originalname); // Unique filenames
@@ -25,12 +25,11 @@ const storage = multer.diskStorage({
 
 
 
-  const pathnew = '/DeployedZone/public/images/uploads/';
+//   const pathnew = './public/images/uploads/';
+// if (!fs.existsSync(pathnew)) {
+//   fs.mkdirSync(pathnew, { recursive: true }); // This will ensure all parent directories are created as well
+// }
 
-  // Ensure the uploads directory exists
-  if (!fs.existsSync(pathnew)) {
-    fs.mkdirSync(pathnew, { recursive: true });
-  }
 
 
 
