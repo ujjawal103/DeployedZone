@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Users-access</title>
+    <link rel="stylesheet" href="stylesheets/user.css">
+</head>
+<body>
+    <header>
+        <div>
+            <h1>DeployedZone</h1>
+        </div>
+        <section>
+            <a href="/users/newUser">Register User</a>
+            <a href="/users/login">Login Through ERP_id</a>
+        </section>    
+     </header>
+
+    <header id="fakeWala">
+        <div>
+            <h1>DeployedZone</h1>
+        </div>
+        <section>
+            <a href="/users">Register User</a>
+            <a href="/users">Login To Add New Projects</a>
+        </section>    
+    </header>
+    <div id="main">
+        <h2>Available Users</h2>
+        <ol>
+        <% for(let user of users){ %>
+              <li>
+                <div id="userName">
+                   <%= user.erp_id %> - <small><%= user.username %></small>
+                </div>
+                <a href="/users/<%=user.erp_id%>/login">Login</a>
+            </li>
+            
+            
+        <% } %>
+        </ol>
+    </div>
+</body>
+</html>

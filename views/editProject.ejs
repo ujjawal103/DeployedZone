@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New-Project</title>
+    <link rel="stylesheet" href="/styleSheets/newProject.css">
+    <style>
+          form #left #link{
+        font-size: 1.3rem;
+        color: rgb(12, 229, 131);
+    }
+    @media (max-width : 650px){
+        form #left #link{
+        font-size: 0.7rem;
+        color: rgb(12, 229, 131);
+    }
+    }
+    </style>
+</head>
+<body>
+    
+    <form method="post" action="/users/<%= project._id %>/edit" enctype="multipart/form-data">
+        <h2>DeployedZone</h2>
+        <div id="all">
+            <div id="left">
+                <input type="text" name="title" id="title" required value="<%= project.title %>">
+                <div><textarea name="description" id="description" rows="6" cols="12"><%= project.description %></textarea></div>
+                <input type="text" name="link" id="link" value="<%=project.link%>">
+            </div>
+            <div id="right">
+                <div class="imagePreview">
+                    <img src="<%= project.imagePath %>" alt="Project Photo" id="movieImage">
+                </div>
+                <input type="file" id="image" name="image" accept="image/*">
+            </div>
+        </div>
+       <button type="submit"> Submit </button>
+    </form>
+
+
+    <script>
+         let file;
+        let image = document.querySelector("#image")
+        image.addEventListener("change",function(event){
+    // console.log(event.target.files[0]);
+     file = event.target.files[0];
+     const fileURL = URL.createObjectURL(file);
+     document.querySelector("#movieImage").src = fileURL;
+     console.log(fileURL);
+})
+    </script>
+</body>
+</html>

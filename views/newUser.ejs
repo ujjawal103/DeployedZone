@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New User</title>
+    <link rel="stylesheet" href="/stylesheets/newUser.css">
+</head>
+<body>
+    <h2>Welcome to DeployedZone</h2> <br><br>
+    
+    <form method="post" action="/users">
+           <input type="text" placeholder="Enter UserName" name="username" id="username" required>
+           <input type="text" placeholder="Enter Your Erp No." id="erp" name="erp" required>
+           <% if(flag == false){ %>
+            <small>erp is already registered*</small>
+            <% } %>
+           <input type="text" placeholder="Enter Your Password" id="password" name="password" required>
+           <button type="submit">Submit</button>
+    </form> <br>
+    <h5>Let's showCase your Projects With Others</h5>
+</body>
+</html>

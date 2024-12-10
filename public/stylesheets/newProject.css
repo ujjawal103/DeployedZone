@@ -1,0 +1,253 @@
+*{
+    margin:0%;
+    padding:0%;
+    box-sizing: border-box;
+}
+
+html,body{
+    height:100%;
+    width:100%;
+}
+body{
+    background-color: rgb(11, 4, 51);
+    color: rgb(255, 255, 255);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+   
+    flex-wrap: wrap;
+  
+}
+
+form{
+    width: 60vw;
+    height: 90vh;
+    background-color: rgb(21, 8, 96);
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+
+    border: 4px solid grey;
+    border-radius: 5%;
+    /* align-items: first baseline; */
+
+    gap: 20px;
+    padding: 20px;
+
+   position: relative;
+   cursor: pointer;
+
+}
+
+form h2{
+    font-size: 3vw;
+    text-wrap: wrap;
+    margin-top: 2vh;
+    text-align: center;
+    align-self: center;
+}
+
+form input{
+  
+  width: 95%;
+  height: 15%;
+  color: rgb(39, 211, 182);
+  background-color: grey;
+
+  border-radius: 20px;
+  padding: 20px;
+  cursor: pointer;
+  font-size: 4vh;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-style: oblique;
+
+}
+form input::placeholder{
+    color: black;
+    margin-left: 20px;
+    cursor: pointer;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-style: oblique;
+}
+textarea{
+    width: 90%;
+    height: 35vh;
+    background-color: grey;
+    color: whitesmoke;
+    font-size: 4vw;
+    font-style: italic;
+    text-wrap: wrap;
+    display: flex;
+    flex-wrap: wrap;
+    border-radius: 20px;
+    border: 3px solid red;
+    padding: 10px;
+    cursor: pointer;
+}
+textarea::placeholder{
+    color: whitesmoke;
+    font-size: 4vw;
+    font-style: italic;
+    text-wrap: wrap;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 10px;
+}
+
+#all{
+    /* background-color: aqua; */
+    display: flex;
+    /* flex-wrap: wrap; */
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+#left{
+    width: 70%;
+    /* background-color: brown; */
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+#right{
+    /* background-color: chocolate; */
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-end;
+    #image{
+        width: 200px;
+        font-size: x-small;
+        height: 50px;
+    }
+}
+
+.imagePreview{
+    width: 200px;
+    height: 200px;
+    background-color: rgb(184, 179, 179);
+    border: 2px solid brown;
+    border-radius: 10px;
+    object-fit: cover;
+    object-position: center;
+    img{
+        width: 200px;
+        height: 200px;
+        border-radius: 10px;
+        
+    }
+}
+
+form button{
+    padding: 20px;
+    border: 2px solid brown;
+    background-color: greenyellow;
+    border-radius: 10px;
+
+    position: absolute;
+    align-self: last baseline;
+    bottom: 20px;
+    right: 30px;
+    cursor: pointer;
+}
+
+img{
+    width: 90%;
+    height: 90%;
+}
+
+
+@media (max-width : 890px){
+    form{
+        width: 90vw;
+        /* height: 80vh; */
+        background-color: rgb(21, 8, 96);
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        gap: 5px;
+        padding: 10px;
+    
+    }
+    #all{
+        /* background-color: aqua; */
+        width: 100%;
+        /* background-color: aqua; */
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: flex-start;
+    }
+    #left{
+        width: 100%;
+        /* background-color: brown; */
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+    form input{
+  
+        width: 95%;
+        height: 15%;
+        color: rgb(39, 211, 182);
+        background-color: grey;
+      
+        border-radius: 20px;
+        padding: 20px;
+        cursor: pointer;
+        font-size: 2vh;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        font-style: oblique;
+      
+      }
+    textarea{
+        width: 90%;
+        height: 20vh;
+        background-color: grey;
+        color: whitesmoke;
+        font-size: 1.8vh;
+        font-style: italic;
+        text-wrap: wrap;
+        display: flex;
+        flex-wrap: wrap;
+        border-radius: 20px;
+        border: 3px solid red;
+        padding: 10px;
+        cursor: pointer;
+    }
+    #right{
+        /* background-color: chocolate; */
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        align-items: flex-start;
+        margin-bottom: 20px;
+        .imagePreview{
+            width: 150px;
+            height: 150px;
+            background-color: rgb(184, 179, 179);
+            border: 2px solid brown;
+            border-radius: 8px;
+            object-fit: cover;
+            object-position: center;
+            img{
+                width: 150px;
+                height: 150px;
+                border-radius: 8px;
+                
+            }
+        }
+        #image{
+            width: 200px;
+            font-size: x-small;
+            height: 30px;
+            padding: 7px 20px;
+        }
+        
+    }
+   
+}

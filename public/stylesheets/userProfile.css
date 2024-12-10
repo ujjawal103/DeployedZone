@@ -1,0 +1,395 @@
+*{
+    margin:0%;
+    padding:0%;
+    box-sizing: border-box;
+}
+
+html,body{
+    height:100%;
+    width:100%;
+}
+body{
+    background-color: rgb(11, 4, 51);
+    padding-bottom: 20px;
+}
+header{
+    width: 100%;
+    background-color: rgb(21, 8, 96);
+    padding: 15px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 15px;
+    position: fixed;
+    margin-bottom: 20px;
+    div{
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        color: aqua;
+        font-size: larger;
+        font-style: oblique;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        font-weight: 700;
+        h1{
+            color: #fff;
+        font-size: larger;
+        font-style: normal;
+        font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        font-weight: 700;
+        }
+        img{
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            border: 2px solid rgb(89, 195, 149);
+        }
+    }
+    section{
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        gap: 15px;
+    }
+    a{
+        padding: 15px;
+        text-decoration: none;
+        color: black;
+        background-color: beige;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: 'Times New Roman', Times, serif;
+    }
+    #avatar{
+        object-fit: cover;
+        object-position: center;
+    }
+}
+#fakeWala{
+    width: 100%;
+    
+    margin-bottom: 20px;
+    position: sticky;
+    z-index: -1;
+    opacity: 0;
+}
+
+#main{
+    width: 100%;
+    padding: 0 7%;
+    margin-bottom: 10px;
+}
+.all{
+    color: white;
+    background-color: rgb(80, 80, 123);
+    margin-bottom: 20px;
+    border-radius: 20px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    h2{
+        color: aqua;
+        font-size: larger;
+        font-style: oblique;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        font-weight: 700; 
+    }
+    small{
+        color: rgb(195, 188, 188);
+        align-self: flex-end;
+    }
+}
+.reviews{
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    .left{
+        width: 70%;
+        overflow: hidden;
+        h1{
+            margin-top: 10px;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+        p{
+            margin: 10px;
+            width: 70%;
+            text-wrap: wrap;
+        }
+    }
+    .right{
+       /* align-self: flex-end; */
+       display: flex;
+       flex-direction: column;
+       align-items: center;
+       margin-bottom: 12px;
+       .pic{
+        width: 120px;
+        height: 120px;
+        border-radius: 20px;
+        border: 2px solid brown;
+        background-color: grey;
+        object-fit: cover;
+        object-position: center;
+        img{
+            width: 120px;
+            height: 120px;
+            border-radius: 20px;
+            object-fit: cover;
+        }
+       }
+    }
+   
+}
+.gold{
+    color: gold;
+}
+.runSite{
+    display: inline-block;
+    padding: 15px;
+    background-color: rgb(44, 237, 22);
+    border-radius: 10px;
+    border: 2px solid grey;
+    text-decoration: none;
+    color: #000;
+    font-weight: 800;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media (max-width:650px){
+    header{
+        width: 100%;
+        height: 160px;
+        margin-bottom: 20px;
+        position: fixed;
+        border-bottom-left-radius: 25px;
+        border-bottom-right-radius: 25px;
+        z-index: 99;
+        section{
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+            gap: 5px;
+        }
+    }
+    #fakeWala{
+        width: 100%;
+        height: 160px;
+        margin-bottom: 20px;
+        position: sticky;
+        z-index: -1;
+        border-bottom-left-radius: 25px;
+        border-bottom-right-radius: 25px;
+    }
+    #main{
+        padding:0 4%;
+        z-index: 10;
+    }
+    .left{
+        width: 70%;
+        overflow: hidden;
+        h1{
+            width: 90%;
+            font-size: 1rem;
+            margin-top: 10px;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+        p{
+            margin: 10px;
+            width: 70%;
+            text-wrap: wrap;
+        }
+    }
+    .all{
+        min-height: 180px;
+        h2{
+            font-size: 4vw;
+        }
+    }
+    .reviews{
+        height: 100%;
+        display: flex;
+        align-items: first baseline;
+        justify-content: space-between;
+    }
+    .right{
+       align-self: normal;
+       height: 100%;
+    }
+
+}
+
+
+
+
+.options{
+  
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 20px;
+    padding: 10px 0px;
+}
+.options form button{
+    padding: 10px 20px;
+    background-color: rgb(70, 66, 66);
+    border: 1px solid rgb(135, 134, 138);
+    color: whitesmoke;
+    align-self: flex-start;
+    text-decoration: none;
+    color: white;
+    border-radius: 20px;
+    /* border: none; */
+    font-style: oblique;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.options form .red2{
+    background-color: rgba(215, 14, 51, 0.9);
+    color:rgb(21, 8, 96) ;
+}
+
+@media (max-width:650px){
+    .options{
+        flex-direction: column;
+    }
+}
+
+
+
+/* Blurred background */
+.hidden {
+    display: none;
+}
+
+#popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    /* display: flex; */
+    justify-content: first baseline;
+    align-items: first baseline;
+    z-index: 1100;
+    backdrop-filter: blur(5px); /* Blurring effect */
+    padding: 5vw;
+}
+@media (max-width:650px){
+    #popup{
+        padding: 14vw;
+    }
+}
+.popup-content {
+    background: rgb(148, 143, 185);
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    h3{
+        color: aqua;
+        font-style: italic;
+        margin-bottom: 10px;
+    }
+}
+#avatarPhoto{
+    width: 150px;
+    height: 150px;
+    border-radius: 50%; /* Circle avatar */
+    margin-bottom: 10px;
+    border: 2px solid blue;
+    object-fit: cover;
+    object-position: center;
+    overflow: hidden;
+    
+}
+.large-avatar {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%; /* Circle avatar */
+    margin-bottom: 10px;
+    /* border: 2px solid blue; */
+    object-fit: cover;
+    object-position: center;
+}
+
+/* Hide the default file input */
+#newAvatar {
+    display: none;
+}
+
+/* Style the custom button */
+.custom-upload-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+/* Hover effect for the button */
+.custom-upload-btn:hover {
+    background-color: #0056b3;
+}
+
+#closeBtn{
+    margin-top: 15px;
+    padding: 10px;
+    background-color: rgb(45, 129, 14);
+    border-radius: 4px;
+    color: white;
+    font-weight: bolder;
+}
+
+
+.userAvatar{
+    width: 50px;
+    height: 50px;
+    border: 2px solid rgb(233, 24, 191);
+    border-radius: 50%;
+    overflow: hidden;
+    display: inline-block;
+    img{
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        object-fit: cover;
+        object-position: center;
+    }
+}
+
+.username{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password - login</title>
+    <link rel="stylesheet" href="/styleSheets/enterPass.css">
+    <style>
+        header{
+            display: block;
+            h3{
+            text-align: center;
+        }
+        } 
+        #erp{
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <div id="main">
+        <header>
+            <h3>Login Through ERP_id</h3>
+        </header>
+        <form method="post" action="/users/login/erp">
+            <div id="erp">
+                <label for="erp_id">Enter Your ERP_id: </label>
+                <input type="number" id="erp_id" name="erp_id" required >
+            </div>    
+            <div id="pass">
+                 <label for="password">Enter Your Password: </label>
+                <input type="text"  id="password" name="password" required>
+            </div>
+            <% if(flag2 === false){%>
+                <p><small style="color: red;">Either ERP_id or Password is Incorrect !! Please Try Again.</small></p>
+            <% } %>
+           
+             <button type="submit">Submit</button>
+        </form>
+        
+
+    </div>
+</body>
+</html>

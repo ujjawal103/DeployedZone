@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects</title>
+    <link rel="stylesheet" href="/stylesheets/projects.css">
+</head>
+<body>
+    <header>
+        <div>
+            <h1>DeployedZone</h1>
+        </div>
+        <section>
+            <a href="/users/newUser">Create Account</a>
+            <a href="/users">Login To Add New Projects</a>
+        </section>
+        
+    </header>
+    <header id="fakeWala">
+        <div>
+            <h1>DeployedZone</h1>
+        </div>
+        <section>
+            <a href="/users/newUser">Create Account</a>
+            <a href="/users">Login To Add New Projects</a>
+        </section>
+    </header>
+    <div id="main">
+        <% for(let project of projects){ %>
+          <div class="all">
+            <a href="/users/<%=project.erp_id%>/public" id="forProfile">
+                <div class="username">
+                    <% for(let user of users){ %>
+                        <% if(user.erp_id === project.erp_id) {%>
+                            <div class="userAvatar">
+                                <img src="<%=user.avatar%>" alt="Avatar">
+                            </div>
+                        <% } %>
+                    <% } %>
+                    <h2>@<%= project.username %></h2>
+                </div>
+            </a>
+            <div class="reviews">
+                <div class="left">
+                    <h1><%= project.title %></h1>
+                    <p><%= project.description %></p>
+                    <% if (project.link) { %>
+                        <a href="<%= project.link %>" class="runSite" target="_blank">View Demo</a>
+                      <% } else { %>
+                        <span class="noLink runSite" style="background-color: red;">No Demo Available</span>
+                      <% } %>                      
+                </div>
+               <div class="right">
+                    <div class="pic">
+                        <img src="<%= project.imagePath %>" alt="Project Image">
+                    </div>
+                    <!-- paste here from z_extra here -->
+               </div>
+            </div>
+            <small>Published On:- <%= project.created_at.toString().split(" ").slice(0,4).join(" ")%></small>
+            <small>At : <%= project.created_at.toString().split(" ")[4]%></small>
+         </div>
+        <% } %>
+    </div>
+    <br><br><br>
+    <script src="/javascripts/imageOpen.js"></script>
+</body>
+</html>
+
+
+
+                 

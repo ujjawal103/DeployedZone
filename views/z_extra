@@ -1,0 +1,60 @@
+               
+                 <div class="stars">
+                 <!--    <% for(let i = 0 ; i<post.rating ; i++){  %>
+                        <span class="star gold">★</span>
+                    <% } %>
+                    <% for(let i = post.rating ; i<5 ; i++){  %>
+                        <span class="star">★</span>
+                    <% } %>
+                 </div> -->
+
+
+
+
+
+
+                 enterPass
+                
+                <% if(incorrectPass === 2){%>
+                    <p><small style="color: rgb(144, 136, 136);">Password required<sup style="color: red;">*</sup></small></p>
+                <% } %>
+
+
+
+                user Profile
+                <div class="stars">
+                    <% for(let i = 0 ; i<post.rating ; i++){  %>
+                        <span class="star gold">★</span>
+                    <% } %>
+                    <% for(let i = post.rating ; i<5 ; i++){  %>
+                        <span class="star">★</span>
+                    <% } %>
+                 </div>
+
+//without cloudinary
+
+                 app.post("/users/profile/:erp_id/new",upload.single("image"),async function(req,res){
+                    let {erp_id} = req.params;
+                    let {title , description , link} = req.body;
+                    
+                    let path = req.file.path;
+                    let url = path.replace("C:\\COURSE\\DeployedZone\\public\\images", "\\images");
+                    
+                    let user = await User.findOne({erp_id : erp_id});
+                    let newProject = new allProject({
+                        username : user.username,
+                        erp_id : user.erp_id,
+                        title : title,
+                        description : description,
+                        link : link,
+                        imagePath : url,
+                        created_at : new Date()
+                    });
+                
+                    newProject
+                    .save()
+                    .then(res => console.log("project Added"))
+                    .catch(err => console.log(err));
+                    res.redirect(`/users/profile/${erp_id}`);
+                })
+                 

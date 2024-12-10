@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password - login</title>
+    <link rel="stylesheet" href="/styleSheets/enterPass.css">
+</head>
+<body>
+    <div id="main">
+        <header>
+            <img src="<%=user.avatar%>" alt="User Avtar">
+            <h3><%= user.username %></h3>
+        </header>
+        <form method="post" action="/users/<%=user.erp_id%>/">
+            <h1>ERP_id : <%= user.erp_id %></h1>
+            <div id="pass">
+                 <label for="password">Enter Your Password: </label>
+                <input type="text" placeholder="No option to Forget" id="password" name="password" required>
+            </div>
+            <% if(flag2 === false){%>
+                <p><small style="color: red;">Incorrect Password !! Please Try Again.</small></p>
+            <% } %>
+           
+             <button type="submit">Submit</button>
+        </form>
+        
+
+    </div>
+</body>
+</html>
