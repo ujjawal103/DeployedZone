@@ -9,7 +9,7 @@ const mongoose = require("mongoose");
 const multer = require("multer");
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
-      cb(null, "/public/images/uploads");  // Folder to temporarily store files
+      cb(null, "/DeployedZone/public/images/uploads");  // Folder to temporarily store files
     },
     filename: (req, file, cb) => {
       cb(null, Date.now() + "-" + file.originalname); // Unique filenames
