@@ -100,6 +100,7 @@ header{
     small{
         color: rgb(195, 188, 188);
         align-self: flex-end;
+        font-size: smaller;
     }
 }
 .reviews{
@@ -124,7 +125,7 @@ header{
        display: flex;
        flex-direction: column;
        align-items: center;
-       margin-bottom: 12px;
+       margin-bottom: 15px;
        .pic{
         width: 120px;
         height: 120px;
