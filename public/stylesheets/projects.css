@@ -100,7 +100,7 @@ header{
     small{
         color: rgb(195, 188, 188);
         align-self: flex-end;
-        font-size: smaller;
+        font-size: 0.3rem;
     }
 }
 .reviews{
