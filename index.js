@@ -4,6 +4,8 @@ const app = express();
 const dotenv = require("dotenv");
 dotenv.config();
 
+const fs = require("fs");        ///already installed with node || fs -> file
+
 const mongoose = require("mongoose");
 
 const multer = require("multer");
@@ -48,8 +50,7 @@ const storage = multer.diskStorage({
     api_secret: process.env.API_SECRET,
   });
 
-  const fs = require("fs");        ///already installed with node || fs -> file
-
+ 
 
 const methodOverride = require("method-override");
 app.use(methodOverride('_method'));
