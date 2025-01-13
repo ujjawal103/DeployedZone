@@ -200,6 +200,43 @@ app.post("/users/login/erp" , async function(req,res){
 })
 
 
+//account delete
+app.get("/users/:erp_id/delete", async function(req,res){
+  let {erp_id} = req.params;
+  try{
+     let user = await User.findOne({erp_id : erp_id });
+     if(!user){
+         res.send("user Not Exist");
+      }
+      else{
+         // console.log(user);
+         res.render("deleteConfirm.ejs" , {user , flag2});
+      }
+  }catch(err){
+     console.log(err);
+  }
+})
+app.delete("/users/:erp_id/delete" , async function(req,res){
+  let {erp_id} = req.params;
+  let {password} = req.body;
+  let user = await User.findOne({erp_id : erp_id });
+  if(user.password === password){
+      flag2 = true;
+      await User.findOneAndDelete({erp_id : erp_id });
+      res.redirect(`/projects`);
+      // console.log("login Successful");
+  }
+  else{
+      flag2 = false;
+      res.redirect(`/users/${erp_id}/delete`);
+      // console.log("password incorect");
+  }
+});
+
+
+
+
+
 
 
 app.get("/users/profile/:erp_id/new",async function(req,res){

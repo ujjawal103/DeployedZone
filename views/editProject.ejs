@@ -25,7 +25,10 @@
         <div id="all">
             <div id="left">
                 <input type="text" name="title" id="title" required value="<%= project.title %>">
-                <div><textarea name="description" id="description" rows="6" cols="12"><%= project.description %></textarea></div>
+                <div>
+                    <textarea name="description" id="description" rows="6" cols="12" oninput="validateCharacterLimit()"><%= project.description %></textarea>
+                    <p id="charCount" style="text-align: end; margin-right: 60px; margin-top: 5px;"></p>
+                </div>
                 <input type="text" name="link" id="link" value="<%=project.link%>">
             </div>
             <div id="right">
@@ -35,7 +38,7 @@
                 <input type="file" id="image" name="image" accept="image/*">
             </div>
         </div>
-       <button type="submit"> Submit </button>
+       <button type="submit" id="submitBtn"> Submit </button>
     </form>
 
 
@@ -50,5 +53,29 @@
      console.log(fileURL);
 })
     </script>
+
+<script>
+    function validateCharacterLimit() {
+        const description = document.getElementById("description");
+        const charCountDisplay = document.getElementById("charCount");
+        const submitButton = document.getElementById("submitBtn");
+        
+        // Get the length of the description text
+        const charCount = description.value.length;
+
+        // Update character count display
+        charCountDisplay.textContent = `Character Count: ${charCount}/800`;
+
+        // Disable submit button if character count exceeds 2000
+        if (charCount > 800) {
+            charCountDisplay.style.color = "red";
+            submitButton.disabled = true;
+        } else {
+            charCountDisplay.style.color = "white";
+            submitButton.disabled = false;
+        }
+    }
+</script>
+
 </body>
 </html>

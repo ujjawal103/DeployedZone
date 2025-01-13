@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Users-access</title>
+    <link
+    href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"
+    rel="stylesheet"
+/>
     <link rel="stylesheet" href="stylesheets/user.css">
 </head>
 <body>
@@ -12,6 +16,7 @@
             <h1>DeployedZone</h1>
         </div>
         <section>
+            <a href="/projects">Home</a>
             <a href="/users/newUser">Register User</a>
             <a href="/users/login">Login Through ERP_id</a>
         </section>    
@@ -34,8 +39,11 @@
                 <div id="userName">
                    <%= user.erp_id %> - <small><%= user.username %></small>
                 </div>
-                <a href="/users/<%=user.erp_id%>/login">Login</a>
-            </li>
+                <div class="remove">
+                    <a href="/users/<%=user.erp_id%>/login">Login</a>
+                    <a href="/users/<%=user.erp_id%>/delete" class="delete"><i class="ri-delete-bin-5-fill"></i></a>
+                </div>
+               </li>
             
             
         <% } %>

@@ -104,3 +104,17 @@ form{
     height: auto;
   }
 }
+
+
+
+
+/* delete confirmation */
+form .accnDelete{
+    width: 100%;
+    margin-top: 20px;
+    text-align: center;
+    color: red;
+    .whitePipe{
+        color: white;
+    }
+}

@@ -101,7 +101,6 @@ header{
     small{
         color: rgb(195, 188, 188);
         align-self: flex-end;
-        font-size: 0.7rem;
     }
 }
 .reviews{
@@ -393,4 +392,16 @@ header{
     display: flex;
     gap: 10px;
     align-items: center;
+}
+
+
+
+.delete{
+    color: rgb(255, 0, 0);
+    padding: 12px;
+    padding-top: 5;
+    padding-bottom: 5;
+    background-color: #6b6666;
+    border-radius: 20px;
+    text-decoration: none;
 }

@@ -126,3 +126,13 @@ ol li a{
 small{
     color: aqua;
 }
+.remove{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+.delete{
+    background-color: rgb(220, 30, 30);
+    border-radius: 10px;
+}
