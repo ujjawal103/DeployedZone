@@ -402,7 +402,7 @@ app.post("/users/:_id/edit",upload.single("image"),async function(req,res){
 
 
 //deleting the project
-app.delete("/users/:_id/delete" , async function(req,res){
+app.delete("/users/:_id/project/delete" , async function(req,res){
   let {_id} = req.params;
   let project = await allProject.findOne({_id : _id });
   await allProject.findByIdAndDelete(_id);
