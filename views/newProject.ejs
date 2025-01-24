@@ -27,7 +27,7 @@
                 <input type="text" placeholder="Enter Project Title" name="title" id="title" required>
                 <div>
                     <textarea name="description" id="description" rows="6" cols="12" placeholder="Describe Your Project..." oninput="validateCharacterLimit()"></textarea>
-                    <p id="charCount" style="text-align: end; margin-right: 60px; margin-top: 5px;">Character Count: 0/800</p>
+                    <p id="charCount" style="text-align: end; margin-right: 60px; margin-top: 5px;">Character Count: 0/249</p>
                 </div>
                 <input type="text" placeholder="Enter Project URL" name="link" id="link">
             </div>
@@ -66,10 +66,10 @@
         const charCount = description.value.length;
 
         // Update character count display
-        charCountDisplay.textContent = `Character Count: ${charCount}/800`;
+        charCountDisplay.textContent = `Character Count: ${charCount}/249`;
 
         // Disable submit button if character count exceeds 2000
-        if (charCount > 800) {
+        if (charCount > 249) {
             charCountDisplay.style.color = "red";
             submitButton.disabled = true;
         } else {
