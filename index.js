@@ -8,6 +8,8 @@ const fs = require("fs");        ///already installed with node || fs -> file
 
 const mongoose = require("mongoose");
 
+const asyncWrap = require("./utils/asyncWrap.js");
+const ExpressError = require("./utils/ExpressError.js");
 
 const pathnew = './public/images/uploadss/';
 if (!fs.existsSync(pathnew)) {
@@ -84,21 +86,22 @@ main()
 
 const User = require("./models/newUser");   //user model
 const allProject = require("./models/allProjects");  //projects model
+const { console } = require("inspector");
 
 app.get("/",(req,res)=>{
-    res.send("Server Working");
+  res.send("Server Working And To View Content Go To /projects");
 })
 
 
 
-app.get("/users",async function(req,res){            //allUsers
+app.get("/users",asyncWrap(async function(req,res){            //allUsers
     let users = await User.find();
     flag=true;
     flag2 = true;
     // console.log(users);
     if(users) res.render("users.ejs" , {users});
     else res.send("users Not Available");
-})
+}))
 
 
 
@@ -108,7 +111,7 @@ app.get("/users/newUser",function (req , res){
     res.render("newUser.ejs" , {flag});
     // console.log("hello");
 });
-app.post("/users" , async function(req,res){
+app.post("/users" , asyncWrap(async function(req,res){
     let {username , erp , password} = req.body;
     let user = await User.find({erp_id : erp });
     // console.log(username , erp , password);
@@ -129,12 +132,12 @@ app.post("/users" , async function(req,res){
         flag = false;
         res.redirect("/users/newUser");
     }
-})
+}))
 
 
 
 //login via button
-app.get("/users/:erp_id/login",async function(req,res){
+app.get("/users/:erp_id/login",asyncWrap(async function(req,res){
      let {erp_id} = req.params;
      try{
         let user = await User.findOne({erp_id : erp_id });
@@ -148,8 +151,8 @@ app.get("/users/:erp_id/login",async function(req,res){
      }catch(err){
         console.log(err);
      }
-})
-app.post("/users/:erp_id" , async function(req,res){
+}));
+app.post("/users/:erp_id" , asyncWrap(async function(req,res){
     let {erp_id} = req.params;
     let {password} = req.body;
     let user = await User.findOne({erp_id : erp_id });
@@ -163,15 +166,15 @@ app.post("/users/:erp_id" , async function(req,res){
         res.redirect(`/users/${erp_id}/login`);
         // console.log("password incorect");
     }
-});
+}));
 
 
-app.get("/users/profile/:erp_id" , async function(req , res){          //show profile for both login methods
+app.get("/users/profile/:erp_id" , asyncWrap(async function(req , res){          //show profile for both login methods
     let {erp_id} = req.params;
     let user = await User.findOne({erp_id : erp_id });
     let projects = await allProject.find({erp_id : erp_id}).sort({ _id: -1 });
     res.render("userProfile.ejs" , {user , projects});
-})
+}));
 
 
 //login via erp_id & pass
@@ -179,7 +182,7 @@ app.get("/users/login",function(req,res){
     res.render("enterPassErp.ejs" , {flag2});
     // console.log("mai hu error4");
 })
-app.post("/users/login/erp" , async function(req,res){
+app.post("/users/login/erp" , asyncWrap(async function(req,res){
     let {erp_id , password} = req.body;
     let user = await User.findOne({erp_id : erp_id});
     // console.log("mai hu error4");
@@ -197,11 +200,11 @@ app.post("/users/login/erp" , async function(req,res){
             res.redirect(`/users/profile/${erp_id}`);
         }
     }
-})
+}));
 
 
 //account delete
-app.get("/users/:erp_id/delete", async function(req,res){
+app.get("/users/:erp_id/delete", asyncWrap(async function(req,res){
   let {erp_id} = req.params;
   try{
      let user = await User.findOne({erp_id : erp_id });
@@ -215,8 +218,8 @@ app.get("/users/:erp_id/delete", async function(req,res){
   }catch(err){
      console.log(err);
   }
-})
-app.delete("/users/:erp_id/delete" , async function(req,res){
+}))
+app.delete("/users/:erp_id/delete" , asyncWrap(async function(req,res){
   let {erp_id} = req.params;
   let {password} = req.body;
   let user = await User.findOne({erp_id : erp_id });
@@ -231,7 +234,7 @@ app.delete("/users/:erp_id/delete" , async function(req,res){
       res.redirect(`/users/${erp_id}/delete`);
       // console.log("password incorect");
   }
-});
+}));
 
 
 
@@ -239,12 +242,12 @@ app.delete("/users/:erp_id/delete" , async function(req,res){
 
 
 
-app.get("/users/profile/:erp_id/new",async function(req,res){
+app.get("/users/profile/:erp_id/new",asyncWrap(async function(req,res){
     let {erp_id} = req.params;
     let user = await User.findOne({erp_id : erp_id});
       res.render("newProject.ejs",{user});
-})
-app.post("/users/profile/:erp_id/new", upload.single("image"), async function (req, res) {
+}));
+app.post("/users/profile/:erp_id/new", upload.single("image"), asyncWrap(async function (req, res) {
     let { erp_id } = req.params;
     let { title, description, link } = req.body;
   
@@ -293,11 +296,11 @@ app.post("/users/profile/:erp_id/new", upload.single("image"), async function (r
       console.error("Error:", error);
       res.status(500).send("Something went wrong");
     }
-  });
+  }));
   
 
 //update user avatar
-app.post("/users/:erp_id/avtar",upload.single("image"), async function(req,res){
+app.post("/users/:erp_id/avtar",upload.single("image"), asyncWrap(async function(req,res){
     let { erp_id } = req.params;
     // console.log("sun lo bhai");
     // console.log(req.file);
@@ -328,29 +331,29 @@ app.post("/users/:erp_id/avtar",upload.single("image"), async function(req,res){
         console.error("Error:", error);
         res.status(500).send("Something went wrong || Avatar Uplod failed");
       }
-})
+}));
 
 
 
 //showing individual public profile to users
-app.get("/users/:erp_id/public",async function(req,res){
+app.get("/users/:erp_id/public",asyncWrap(async function(req,res){
   let {erp_id} = req.params;
   let user = await User.findOne({erp_id : erp_id });
   let projects = await allProject.find({erp_id : erp_id}).sort({ _id: -1 });
   res.render("publicProfile.ejs" , {user , projects});
-})
+}));
 
 
 
 
 
 //edit project
-app.patch("/users/:id/edit" ,async function(req,res){
+app.patch("/users/:id/edit" ,asyncWrap(async function(req,res){
     let {id} = req.params;
     let project = await allProject.findOne({_id : id });
     res.render("editProject.ejs" , {project});
-})
-app.post("/users/:_id/edit",upload.single("image"),async function(req,res){
+}))
+app.post("/users/:_id/edit",upload.single("image"),asyncWrap(async function(req,res){
   let {_id} = req.params;
   let { title, description, link } = req.body;
   let project = await allProject.findOne({_id : _id });
@@ -396,18 +399,18 @@ app.post("/users/:_id/edit",upload.single("image"),async function(req,res){
     console.error("Error:", error);
     res.status(500).send("Something went wrong");
   }
-})
+}))
 
 
 
 
 //deleting the project
-app.delete("/users/:_id/project/delete" , async function(req,res){
+app.delete("/users/:_id/project/delete" , asyncWrap(async function(req,res){
   let {_id} = req.params;
   let project = await allProject.findOne({_id : _id });
   await allProject.findByIdAndDelete(_id);
   res.redirect(`/users/profile/${project.erp_id}`);
-})
+}));
 
 
 
@@ -426,18 +429,26 @@ app.delete("/users/:_id/project/delete" , async function(req,res){
 
 
 //all projects
-app.get("/projects",async function(req,res){
+app.get("/projects",asyncWrap(async function(req,res){
     flag=true;
     flag2 = true;
     let projects = await allProject.find().sort({ _id: -1 }).exec();
     let users = await User.find();
     res.render("allProjects.ejs",{projects , users});
+}));
+
+
+
+
+app.all("*" , (req,res,next)=>{
+  next(new ExpressError(404,"Page Not Found"));
 })
 
-
-
-
-
+app.use((err , req, res, next) =>{
+  let {status=500 , message="Error Found At Page"} = err;
+  console.log(message);
+  res.status(status).send(message);
+})
 
 
 
