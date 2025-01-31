@@ -16,6 +16,7 @@
         <form method="post" action="/users/<%=user.erp_id%>/delete?_method=DELETE">
             <h2 class="accnDelete"><span class="whitePipe">!!</span> DELETE YOUR ACCOUNT  <span class="whitePipe">!!</span></h2>
             <h1>ERP_id : <%= user.erp_id %></h1>
+            <p><strong style="color: grey;">NOTE</strong>:- This Action Will Delete All Your Projects.</p>
             <div id="pass">
                  <label for="password">Confirm Your Password: </label>
                 <input type="text" placeholder="No option to Forget" id="password" name="password" required>
