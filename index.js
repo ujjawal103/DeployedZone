@@ -60,6 +60,13 @@ const storage = multer.diskStorage({
 const methodOverride = require("method-override");
 app.use(methodOverride('_method'));
 
+const session = require('express-session');
+app.use(session({
+    secret: "ujjawalAkhand",  // Change this to a strong secret
+    resave: false,
+    saveUninitialized: false
+}));
+
 const path = require('path');
 let flag = true; //check erp_id
 let flag2 = true;  //check password
@@ -138,69 +145,94 @@ app.post("/users" , asyncWrap(async function(req,res){
 
 //login via button
 app.get("/users/:erp_id/login",asyncWrap(async function(req,res){
-     let {erp_id} = req.params;
-     try{
-        let user = await User.findOne({erp_id : erp_id });
-        if(!user){
-            res.send("user Not Exist");
-         }
-         else{
-            // console.log(user);
-            res.render("enterPass.ejs" , {user , flag2});
-         }
-     }catch(err){
-        console.log(err);
-     }
+  let {erp_id} = req.params;
+  try{
+     let user = await User.findOne({erp_id : erp_id });
+     if(!user){
+         res.send("user Not Exist");
+      }
+      else{
+         // console.log(user);
+         res.render("enterPass.ejs" , {user , flag2});
+      }
+  }catch(err){
+     console.log(err);
+  }
 }));
 app.post("/users/:erp_id" , asyncWrap(async function(req,res){
-    let {erp_id} = req.params;
-    let {password} = req.body;
-    let user = await User.findOne({erp_id : erp_id });
-    if(user.password === password){
-        flag2 = true;
-        res.redirect(`/users/profile/${erp_id}`);
-        // console.log("login Successful");
-    }
-    else{
-        flag2 = false;
-        res.redirect(`/users/${erp_id}/login`);
-        // console.log("password incorect");
-    }
+ let {erp_id} = req.params;
+ let {password} = req.body;
+ let user = await User.findOne({erp_id : erp_id });
+ if(user.password === password){
+     req.session.user = { erp_id: user.erp_id };  // Store user in session
+     // console.log("Session after login:", req.session); 
+     flag2 = true;
+     res.redirect(`/users/profile/${erp_id}`);
+     // console.log("login Successful");
+ }
+ else{
+     flag2 = false;
+     res.redirect(`/users/${erp_id}/login`);
+     // console.log("password incorect");
+ }
 }));
 
 
 app.get("/users/profile/:erp_id" , asyncWrap(async function(req , res){          //show profile for both login methods
-    let {erp_id} = req.params;
-    let user = await User.findOne({erp_id : erp_id });
-    let projects = await allProject.find({erp_id : erp_id}).sort({ _id: -1 });
-    res.render("userProfile.ejs" , {user , projects});
+ if (!req.session.user) {
+     return res.status(401).send("Unauthorized: Please log in first");
+ }
+
+ let { erp_id } = req.params;
+
+ // Check if the logged-in user's erp_id matches the requested profile
+ if (req.session.user.erp_id.toString() !== erp_id.toString()) {
+     return res.status(403).send("Forbidden: You can't access this profile");
+ }
+ let user = await User.findOne({erp_id : erp_id });
+ let projects = await allProject.find({erp_id : erp_id}).sort({ _id: -1 });
+ res.render("userProfile.ejs" , {user , projects});
 }));
 
 
 //login via erp_id & pass
 app.get("/users/login",function(req,res){
-    res.render("enterPassErp.ejs" , {flag2});
-    // console.log("mai hu error4");
+ res.render("enterPassErp.ejs" , {flag2});
+ // console.log("mai hu error4");
 })
 app.post("/users/login/erp" , asyncWrap(async function(req,res){
-    let {erp_id , password} = req.body;
-    let user = await User.findOne({erp_id : erp_id});
-    // console.log("mai hu error4");
-    if(!user){
-        flag2 = false;
-        res.redirect("/users/login");
-    }
-    else{
-        if(user.password !== password){
-            flag2 = false;
-            res.redirect("/users/login");
-        }
-        else{
-            flag2 = true;
-            res.redirect(`/users/profile/${erp_id}`);
-        }
-    }
+ let {erp_id , password} = req.body;
+ let user = await User.findOne({erp_id : erp_id});
+ // console.log("mai hu error4");
+ if(!user){
+     flag2 = false;
+     res.redirect("/users/login");
+ }
+ else{
+     if(user.password !== password){
+         flag2 = false;
+         res.redirect("/users/login");
+     }
+     else{
+         req.session.user = { erp_id: user.erp_id };  // Store user in session
+         flag2 = true;
+         res.redirect(`/users/profile/${erp_id}`);
+     }
+ }
 }));
+
+
+//logout account
+app.get("/logout", (req, res) => {
+req.session.destroy((err) => {
+   if (err) {
+       console.log(err);
+       return res.status(500).send("Error logging out");
+   }
+   res.redirect("/projects");  // Redirect to homepage after logout
+});
+});
+
 
 
 //account delete
