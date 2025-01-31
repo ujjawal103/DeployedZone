@@ -62,7 +62,7 @@ app.use(methodOverride('_method'));
 
 const session = require('express-session');
 app.use(session({
-    secret: "ujjawalAkhand",  // Change this to a strong secret
+    secret: process.env.SESSION_SECRET,  // Change this to a strong secret
     resave: false,
     saveUninitialized: false
 }));
