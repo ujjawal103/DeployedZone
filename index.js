@@ -258,7 +258,7 @@ app.delete("/users/:erp_id/delete" , asyncWrap(async function(req,res){
   if(user.password === password){
       flag2 = true;
       await User.findOneAndDelete({erp_id : erp_id });
-      await allProject.findOneAndDelete({erp_id : erp_id });         //deleting all posts related to the user
+      await allProject.deleteMany({erp_id : erp_id });         //deleting all posts related to the user
       res.redirect(`/projects`);
       // console.log("login Successful");
   }
