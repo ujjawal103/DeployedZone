@@ -44,7 +44,7 @@ I have put a lot of **dedication, effort, and love** into building this project,
 
 | Technology | Purpose |
 |------------|---------|
-| **Frontend**  | HTML, CSS, JavaScript (React.js if applicable) |
+| **Frontend**  | HTML, CSS, JavaScript |
 | **Backend**   | Node.js, Express.js |
 | **Database**  | MongoDB / PostgreSQL (as per your implementation) |
 | **File Storage** | Cloudinary / Multer |
