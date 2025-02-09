@@ -2,7 +2,7 @@
 
 ---
 
-# 🚀 **Project Name - Your Deployed Zone**  
+# 🚀 **Deployed Zone**  
 _A Fully Functional and Real-World Ready Project Showcase Platform_
 
 ## 🌟 **About the Project**  
