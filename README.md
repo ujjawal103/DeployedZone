@@ -55,7 +55,7 @@ I have put a lot of **dedication, effort, and love** into building this project,
 ## 📌 **How to Use**  
 
 ### 1️⃣ **Register & Login**  
-- Sign up with **email & password**.  
+- Sign up with **erp_id & password**.  
 - Login to access your **dashboard**.  
 
 ### 2️⃣ **Create & Manage Projects**  
