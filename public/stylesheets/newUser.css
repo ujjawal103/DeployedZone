@@ -1,4 +1,4 @@
-/* General Reset */
+/* 
 * {
     margin: 0;
     padding: 0;
@@ -6,7 +6,7 @@
     font-family: Arial, sans-serif;
 }
 
-/* Body Styling */
+
 body {
     width: 100vw;
     height: 100vh;
@@ -22,7 +22,7 @@ body {
     text-align: center;
 }
 
-/* Heading Styles */
+
 h2 {
     font-size: 2rem;
     margin-bottom: 10px;
@@ -33,7 +33,7 @@ h3 {
     margin-bottom: 20px;
 }
 
-/* Form Container */
+
 form {
     display: flex;
     flex-direction: column;
@@ -47,11 +47,11 @@ form {
     gap: 10px;
 }
 
-/* Input Fields */
+
 form input {
     width: 100%;
     padding: 10px;
-    /* margin-bottom: 15px; */
+ 
     border: none;
     border-radius: 5px;
     font-size: 1rem;
@@ -60,15 +60,15 @@ form input {
     color: white;
 }
 
-/* Placeholder Styling */
+
 form input::placeholder {
     color: rgba(255, 255, 255, 0.8);
 }
 
-/* Submit Button */
+
 form button {
     display: inline-block;
-    /* width: 100%; */
+   
     padding: 10px;
     font-size: 1rem;
     border: none;
@@ -83,7 +83,7 @@ form button:hover {
     background-color: #6a11cb;
 }
 
-/* Responsive Design */
+
 @media (max-width: 768px) {
     h2 {
         font-size: 1.8rem;
@@ -125,3 +125,145 @@ small{
     color: red;
     margin-bottom: 15px;
 }
+
+
+
+
+
+
+ */
+
+
+
+
+
+ /* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+/* Body Styling */
+body {
+    width: 100vw;
+    height: 100vh;
+    background-color: #f0f4f9; /* from theme */
+    color: #1c3d6a; /* dark blue from theme */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Heading Styles */
+h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    color: #4a7bc1; /* medium light blue */
+}
+
+h3 {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    color: #3a5a99; /* theme dark blue */
+}
+
+/* Form Container */
+form {
+    display: flex;
+    flex-direction: column;
+    background-color: #e6f0fc; /* faded white/light blue */
+    padding: 30px;
+    border-radius: 20px;
+    width: 100%;
+    max-width: 400px;
+    box-shadow: 0 4px 10px rgba(28, 61, 106, 0.15); /* theme shadow */
+    gap: 15px;
+    border: 1px solid #acc6f5; /* light blue border */
+}
+
+/* Input Fields */
+form input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #aac7f8;
+    border-radius: 5px;
+    font-size: 1rem;
+    outline: none;
+    background-color: #dce7fc; /* light blue */
+    color: #1c3d6a;
+}
+
+/* Placeholder Styling */
+form input::placeholder {
+    color: #7a8dbd; /* softer blue-grey */
+}
+
+/* Submit Button */
+form button {
+    display: inline-block;
+    padding: 10px;
+    font-size: 1rem;
+    border: 2px solid #497fcf;
+    border-radius: 10px;
+    background-color: #6da1f8; /* bright light blue */
+    color: white;
+    cursor: pointer;
+    font-weight: 700;
+    font-family: 'Times New Roman', Times, serif;
+    transition: background-color 0.3s ease;
+}
+
+form button:hover {
+    background-color: #4a7bc1; /* medium blue hover */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    h2 {
+        font-size: 1.8rem;
+    }
+
+    h3 {
+        font-size: 1rem;
+    }
+
+    form {
+        padding: 20px;
+    }
+
+    form input, form button {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    h3 {
+        font-size: 0.9rem;
+    }
+
+    form {
+        padding: 15px;
+    }
+
+    form input, form button {
+        font-size: 0.8rem;
+    }
+}
+
+/* Error Message */
+small {
+    align-self: flex-start;
+    color: red;
+    margin-bottom: 15px;
+}
+

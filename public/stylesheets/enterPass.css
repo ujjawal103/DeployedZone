@@ -1,4 +1,4 @@
-*{
+/* *{
     margin:0%;
     padding:0%;
     box-sizing: border-box;
@@ -105,10 +105,6 @@ form{
   }
 }
 
-
-
-
-/* delete confirmation */
 form .accnDelete{
     width: 100%;
     margin-top: 20px;
@@ -117,4 +113,144 @@ form .accnDelete{
     .whitePipe{
         color: white;
     }
+} */
+
+
+
+
+
+*{
+    margin:0%;
+    padding:0%;
+    box-sizing: border-box;
+}
+
+html,body{
+    height:100%;
+    width:100%;
+}
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    background-color: #f0f4f9; /* very light faded white/blue */
+}
+
+#main{
+    width: 40vw;
+    height: 60vh;
+    background-color: #e6f0fc; /* faded white/light blue */
+    display: flex;
+    flex-direction: column;
+    color: #1c3d6a; /* dark blue text */
+    
+    border-radius: 30px;
+    border: 1px solid #acc6f5; /* light blue border */
+    box-shadow: 0 8px 15px rgba(28, 61, 106, 0.15); /* subtle blue shadow */
+}
+
+header{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+    border-bottom: 2px solid #a3b9de; /* light blue border */
+    color: #1c3d6a; /* dark blue */
+}
+
+header img{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid #6789c8; /* light blue border */
+}
+
+header h3{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: large;
+    font-weight: 700;
+}
+
+form{
+    height: 100%;
+    border-bottom-left-radius: 27px;
+    border-bottom-right-radius: 27px;
+    padding: 20px;
+    background-color: #d9e5f7; /* very light blue */
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    color: #1c3d6a; /* dark blue */
+}
+
+form h1{
+    color: #4a7bc1; /* medium blue */
+    font-style: oblique;
+}
+
+#pass{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+    color: #1c3d6a; /* dark blue */
+    font-weight: 800;
+}
+
+#pass p{
+    display: block;
+    color: #d9534f; /* muted red for errors */
+    font-weight: 400;
+}
+
+input{
+    padding: 15px;
+    background-color: #aac7f8; /* light blue input bg */
+    color: #1c3d6a; /* dark blue text */
+    border-radius: 30px;
+    border: 1px solid #6789c8;
+}
+
+input::placeholder{
+    color: #6789c8; /* lighter blue placeholder */
+}
+
+button{
+    margin-top: 30px;
+    padding: 15px;
+    background-color: #497fcf; /* solid light blue */
+    color: white;
+    font-size: larger;
+    border-radius: 25px;
+    border: 3px solid #3a5a99; /* darker blue border */
+    align-self: flex-end;
+    cursor: pointer;
+    font-weight: 700;
+    transition: background-color 0.3s ease;
+}
+button:hover{
+    background-color: #355f9a; /* darker on hover */
+}
+
+@media(max-width: 650px){
+    #main{
+        width: 80vw;
+        height: auto;
+    }
+}
+
+form .accnDelete{
+    width: 100%;
+    margin-top: 20px;
+    text-align: center;
+    color: #d9534f; /* red */
+    font-weight: 600;
+}
+
+form .accnDelete .whitePipe{
+    color: #f0f4f9; /* faded white */
 }

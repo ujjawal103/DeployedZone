@@ -1,4 +1,4 @@
-*{
+/* *{
     margin:0%;
     padding:0%;
     box-sizing: border-box;
@@ -9,9 +9,7 @@ html,body{
     width:100%;
 }
 body{
-    /* display: flex;
-    justify-content: center;
-    align-items: center; */
+  
     flex-wrap: wrap;
     background-color: rgb(9, 5, 47);
 }
@@ -83,7 +81,7 @@ header{
 
 #main{
     width: 100vw;
-    /* background-color: rgb(10, 9, 56); */
+   
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -111,7 +109,7 @@ ol li{
     color: white;
     border: 2px solid rgb(36, 3, 3);
     border-radius: 20px;
-    /* background-color: aqua; */
+ 
 }
 ol li a{
     display: block;
@@ -135,4 +133,176 @@ small{
 .delete{
     background-color: rgb(220, 30, 30);
     border-radius: 10px;
+} */
+
+
+
+
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+    background-color: #f0f4f9; /* Theme background */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    flex-wrap: wrap;
+}
+
+/* Header Section */
+header {
+    width: 100%;
+    background-color: #6a83a6; /* Theme deep blue */
+    padding: 15px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 15px;
+    position: fixed;
+    top: 0;
+    z-index: 10;
+    box-shadow: 0 4px 6px rgba(28, 61, 106, 0.4);
+}
+
+header div {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    color: #a8c7e7; /* Theme light blue */
+    font-size: larger;
+    font-style: oblique;
+    font-weight: 700;
+}
+
+header h1 {
+    color: #ffffff;
+    font-size: larger;
+    font-style: normal;
+    font-family: 'Lucida Sans', sans-serif;
+    font-weight: 700;
+}
+
+header img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 2px solid #59c395; /* Aqua green border */
+}
+
+header section {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 15px;
+}
+
+header a {
+    padding: 10px 15px;
+    text-decoration: none;
+    color: #1c3d6a;
+    background-color: #e0eafc;
+    border-radius: 10px;
+    font-weight: bold;
+    transition: all 0.3s;
+}
+
+header a:hover {
+    background-color: #acc6f5;
+    color: #0e2d55;
+}
+
+/* Spacer for fixed header */
+#fakeWala {
+    width: 100%;
+    margin-bottom: 80px;
+    height: 70px;
+    opacity: 0;
+}
+
+/* Main Content */
+#main {
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #1c3d6a;
+    gap: 30px;
+    padding: 100px 20px 20px; /* Top padding adjusted for fixed header */
+}
+
+/* Ordered List Styling */
+ol {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    list-style-type: decimal;
+}
+
+ol li {
+    font-family: 'Lucida Sans', sans-serif;
+    background-color: #e6f0fc; /* light blue box */
+    padding: 15px;
+    width: 80vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #1c3d6a;
+    border: 2px solid #acc6f5;
+    border-radius: 20px;
+    box-shadow: 0 2px 4px rgba(28, 61, 106, 0.1);
+}
+
+ol li a {
+    display: block;
+    padding: 10px 15px;
+    text-decoration: none;
+    background-color: #2cb023; /* Green button */
+    color: white;
+    font-size: 1rem;
+    border-radius: 20px;
+    font-weight: 600;
+    transition: background-color 0.3s;
+}
+
+ol li a:hover {
+    background-color: #24991b;
+}
+
+.remove {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Delete Button */
+.delete {
+    background-color: #dc1e1e;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.delete:hover {
+    background-color: #b41818;
+}
+
+/* Small Text */
+small {
+    color: #59c3c3; /* Light aqua for emphasis */
+    font-size: 0.9rem;
 }
